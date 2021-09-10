@@ -1,0 +1,88 @@
+body {
+  background-color: #f2f2f2;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body a {
+color: #3498db;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.content h2{
+margin: 5px;
+}
+
+.content .warning {
+color: #eb4c43;
+font-size: 15px;
+margin: 0px;
+}
+
+.content .controls button {
+width: 200px;
+padding: 20px;
+outline: 0;
+background-color: #404142;
+color: white;
+border-radius: 15px;
+box-shadow: none;
+border: none;
+opacity: 0.9;
+cursor: pointer;
+}
+
+.content .controls button:hover {
+opacity: 1;
+}
+
+.content .controls button:active {
+box-shadow: 0px 0px 1px 1px rgb(0 0 0 / 24%)
+}
+
+.content .controls #stop {
+display: none;
+background-color: #eb4c43;
+}
+
+.content .controls #start {
+background-color: #00ad7a;
+}
+
+.content .local {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.content .local video {
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.content .remote {
+  display: flex;
+  align-items: center;
+}
+
+.content .remote video {
+  width: 640px;
+  border-radius: 15px;
+}
+
+.content .view p {
+  text-align: center;
+  width: 100%;
+}
+.content .links {
+padding: 10px;
+}
+.content .links a {
+font-size: 13px;
+}

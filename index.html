@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="In-browser media compositing via WebRTC Insertable Streams API">
+    <meta name="keywords" content="Insertable streams, WebRTC, track processor">
+    <title>In-browser Media Compositing Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="content">
+      <h2>In-browser Media Compositing Demo</h2>
+      <p class="warning">This demo requires experimental platform features: <a href="chrome://flags/#enable-experimental-web-platform-features">chrome://flags/#enable-experimental-web-platform-features</a></p>
+        <div class="local">
+            <div class="view">
+                <p>Camera Stream</p>
+                <video id="camera" controls autoplay muted></video>
+            </div>
+
+            <div class="view">
+                <p>Screen Stream</p>
+                <video id="screen" controls autoplay muted></video>
+            </div>
+        </div>
+        <div class="remote">
+            <div class="view">
+                <p>Remote Composed Stream</p>
+                <video id="remote" controls autoplay></video>
+            </div>
+        </div>
+        <div class="controls">
+          <button id="stop"  onclick="stop()">Stop</button>
+          <button id="start"  onclick="start()">Start</button>
+        </div>
+        <div class="links">
+          <a href="chrome://flags/#enable-experimental-web-platform-features">Article</a>
+          <a href="chrome://flags/#enable-experimental-web-platform-features">Source</a>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>

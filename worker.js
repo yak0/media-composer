@@ -1,29 +1,29 @@
 const canvas = new OffscreenCanvas(1, 1);
-const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext('2d');
 const abortController = new AbortController();
 
 let config = {
   size: 250,
   margin: 20,
-  position: "bottom-left", // top-left, top-right, bottom-left, bottom-right
+  position: 'bottom-left', // top-left, top-right, bottom-left, bottom-right
 };
 
 const calculateAvatarPosition = (width, height) => {
   let dx, dy;
   switch (config.position) {
-    case "top-left":
+    case 'top-left':
       dx = config.margin;
       dy = config.margin;
       break;
-    case "top-right":
+    case 'top-right':
       dx = width - (config.size + config.margin);
       dy = config.margin;
       break;
-    case "bottom-right":
+    case 'bottom-right':
       dx = width - (config.size + config.margin);
       dy = height - (config.size + config.margin);
       break;
-    case "bottom-left":
+    case 'bottom-left':
       dx = config.margin;
       dy = height - (config.size + config.margin);
       break;
@@ -98,14 +98,14 @@ const compose = (cameraReadableStream, screenReadableStream, sink) => {
 onmessage = async (event) => {
   const { operation } = event.data;
   switch (operation) {
-    case "compose":
+    case 'compose':
       const { cameraReadableStream, screenReadableStream, sink } = event.data;
       compose(cameraReadableStream, screenReadableStream, sink);
       break;
-    case "stop":
+    case 'stop':
       abortController.abort();
       break;
-    case "config":
+    case 'config':
       config = { ...config, ...event.data };
       break;
   }

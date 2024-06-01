@@ -9,8 +9,8 @@ let config = {
 }
 
 const calculateAvatarPosition = (width, height) => {
-  let dx, dy;
-  switch (config.position) {
+  let dx,dy;
+  switch(config.position) {
     case 'top-left':
       dx = config.margin;
       dy = config.margin;

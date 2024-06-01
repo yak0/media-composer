@@ -38,12 +38,12 @@ const calculateAvatarPosition = (width, height) => {
 
 const compose = (cameraReadableStream, screenReadableStream, sink) => {
   const screenReader = screenReadableStream.getReader();
-  const { signal } = abortController;
+  const { signal } = abortController
   let screenFrame;
 
   const transformer = new TransformStream({
     async transform(cameraFrame, controller) {
-      screenReader.read().then((frame) => {
+      screenReader.read().then(frame => {
         if (screenFrame) {
           screenFrame.close();
         }

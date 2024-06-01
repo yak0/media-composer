@@ -66,17 +66,7 @@ const compose = (cameraReadableStream, screenReadableStream, sink) => {
         ctx.arc(dx + radius, dy + radius, radius, 0, Math.PI * 2, true);
         ctx.closePath();
         ctx.clip();
-        ctx.drawImage(
-          cameraFrame,
-          sx,
-          sy,
-          ss,
-          ss,
-          dx,
-          dy,
-          config.size,
-          config.size
-        );
+        ctx.drawImage(cameraFrame, sx, sy, ss, ss, dx, dy, config.size, config.size);
 
         const newFrame = new VideoFrame(canvas, {
           timestamp: cameraFrame.timestamp,
@@ -103,7 +93,7 @@ onmessage = async (event) => {
       abortController.abort();
       break;
     case 'config':
-      config = { ...config, ...event.data };
+      config = { ...config, ...event.data};
       break;
   }
 }

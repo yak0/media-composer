@@ -68,7 +68,9 @@ const compose = (cameraReadableStream, screenReadableStream, sink) => {
         ctx.clip();
         ctx.drawImage(cameraFrame, sx, sy, ss, ss, dx, dy, config.size, config.size);
 
-        const newFrame = new VideoFrame(canvas);
+        const newFrame = new VideoFrame(canvas, {
+          timestamp: cameraFrame.timestamp,
+        });
         cameraFrame.close();
         controller.enqueue(newFrame);
       } else {

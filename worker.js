@@ -51,16 +51,13 @@ const compose = (cameraReadableStream, screenReadableStream, sink) => {
       });
 
       if (screenFrame && screenFrame?.displayWidth > 0) {
-        canvas.width = screenFrame.displayWidth;
+        canvas.width = screenFrame.displayWidth
         canvas.height = screenFrame.displayHeight;
         ctx.drawImage(screenFrame, 0, 0, canvas.width, canvas.height);
 
         const radius = config.size / 2;
 
-        const ss = Math.min(
-          cameraFrame.displayWidth,
-          cameraFrame.displayHeight
-        );
+        const ss = Math.min(cameraFrame.displayWidth, cameraFrame.displayHeight);
         const sx = (cameraFrame.displayWidth - ss) / 2;
         const sy = (cameraFrame.displayHeight - ss) / 2;
         const { dx, dy } = calculateAvatarPosition(canvas.width, canvas.height);

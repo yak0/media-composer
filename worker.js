@@ -1,12 +1,12 @@
 const canvas = new OffscreenCanvas(1, 1);
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext("2d");
 const abortController = new AbortController();
 
 let config = {
   size: 250,
   margin: 20,
   position: 'bottom-left', // top-left, top-right, bottom-left, bottom-right
-};
+}
 
 const calculateAvatarPosition = (width, height) => {
   let dx, dy;
@@ -34,7 +34,7 @@ const calculateAvatarPosition = (width, height) => {
   }
 
   return { dx, dy };
-};
+}
 
 const compose = (cameraReadableStream, screenReadableStream, sink) => {
   const screenReader = screenReadableStream.getReader();
@@ -89,11 +89,11 @@ const compose = (cameraReadableStream, screenReadableStream, sink) => {
       } else {
         controller.enqueue(cameraFrame);
       }
-    },
-  });
+    }
+  })
 
   cameraReadableStream.pipeThrough(transformer, { signal }).pipeTo(sink);
-};
+}
 
 onmessage = async (event) => {
   const { operation } = event.data;
@@ -109,4 +109,4 @@ onmessage = async (event) => {
       config = { ...config, ...event.data };
       break;
   }
-};
+}
